@@ -8,6 +8,16 @@ const mongoose = require('mongoose');
 const productRoutes = require("./api/routes/products");
 const OrderRoutes = require("./api/routes/orders");
 
+mongoose.connect(
+    'mongodb+srv://Emma_admin:' +
+    process.env.MONGO_ATLAS_PW +
+    '@node-rest-shop-9rbbm.mongodb.net/test?retryWrites=true&w=majority',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }
+);
+
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
